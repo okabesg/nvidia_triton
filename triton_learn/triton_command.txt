@@ -1,0 +1,6 @@
+docker run --gpus all -p8007:8007 -p8001:8001 -p 8002:8002 -v /data/guiwei/nvidia_triton.models:/models nvcr.io/nvidia/tritonserver:22.06-py3 tritonserver --model-repository=/models
+
+sudo docker run --gpus all --rm -v /data/guiwei/nvidia_triton/models/bert_onnx/1/:/models nvcr.io/nvidia/tensorrt:22.06-py3 \
+/usr/src/tensorrt/bin/trtexec --explicitBatch --workspace=4096 \
+--minShapes=input_idx:1x8,attention_mask:1x8 --optShapes=input_idx:2x8,attention_mask:2x8 --maxShapes=input_idx:4x16,attention_mask:4x16 \
+--onnx=/models/model.onnx --saveEngine=/models/model.plan
