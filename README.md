@@ -2,12 +2,11 @@
 
 + tensorRT
 
-  + tensorRT的基本使用
-  + > https://www.bilibili.com/video/BV15Y4y1W73E
-    >
+  + tensorRT的[基本使用](https://www.bilibili.com/video/BV15Y4y1W73E)
 + ONNX
 
   + pytorch模型转为onnx：test.ipynb
+
   + onnx模型转为tensorRT：onnx2trt.py
 + triton
 
